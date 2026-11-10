@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Funcția de gradul I – Clasa a 9-a</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--tx:#1c2333;--mu:#5d6679;--ac:#3b5bdb;--acb:#e7ecff;--ok:#1f9d55;--okb:#e2f6ea;--er:#d6336c;--erb:#fde8ef;--bd:#dde1ec;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12151f;--card:#1b2030;--tx:#e9ecf5;--mu:#9aa3b8;--ac:#8ea4ff;--acb:#262e52;--ok:#4cd68a;--okb:#16352a;--er:#ff7aa8;--erb:#3b1b2a;--bd:#2c3347;color-scheme:dark}}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{padding:22px 16px 10px;max-width:820px;margin:auto}
+h1{margin:0;font-size:1.6rem}header p{margin:4px 0 0;color:var(--mu)}
+nav{display:flex;gap:6px;max-width:820px;margin:8px auto;padding:0 16px;flex-wrap:wrap}
+nav button{flex:1;min-width:90px;padding:10px;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:10px;font:inherit;cursor:pointer}
+nav button.on{background:var(--ac);color:var(--bg);border-color:var(--ac);font-weight:600}
+main{max-width:820px;margin:auto;padding:8px 16px 40px}
+section{display:none}section.on{display:block}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px;margin:12px 0}
+.card h2{margin:0 0 8px;font-size:1.15rem}
+.f{background:var(--acb);padding:8px 12px;border-radius:8px;margin:8px 0;font-family:Georgia,serif;font-size:1.05rem}
+ul{padding-left:20px;margin:6px 0}
+canvas{width:100%;max-width:420px;height:auto;border:1px solid var(--bd);border-radius:10px;background:var(--card);display:block;margin:auto}
+label{display:block;margin:10px 0 2px}input[type=range]{width:100%}
+input[type=text]{padding:10px;border:1px solid var(--bd);border-radius:8px;font:inherit;background:var(--bg);color:var(--tx);width:140px}
+.btn{padding:10px 16px;border:0;border-radius:8px;background:var(--ac);color:var(--bg);font:inherit;font-weight:600;cursor:pointer;margin:4px 4px 4px 0}
+.btn.s{background:var(--acb);color:var(--ac)}
+.opt{display:inline-block;padding:10px 16px;border:1px solid var(--ac);color:var(--ac);background:transparent;border-radius:8px;margin:4px 6px 4px 0;font:inherit;cursor:pointer}
+.fb{padding:10px 12px;border-radius:8px;margin-top:10px}.fb.ok{background:var(--okb);color:var(--ok)}.fb.no{background:var(--erb);color:var(--er)}
+.fb small{display:block;color:var(--tx);margin-top:4px}
+.stats{display:flex;gap:10px;flex-wrap:wrap;color:var(--mu);font-size:.92rem}
+.stats b{color:var(--tx)}select{padding:8px;border-radius:8px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font:inherit;max-width:100%}
+.q{font-size:1.1rem;margin:8px 0}.bar{height:8px;background:var(--bd);border-radius:6px;overflow:hidden}.bar i{display:block;height:100%;background:var(--ac)}
+</style>
+</head>
+<body>
+<header><h1>📈 Funcția de gradul I</h1><p>Teorie, grafic interactiv și exerciții pentru examenul de clasa a 9-a (R. Moldova)</p></header>
+<nav id="nav"><button data-t="teorie" class="on">Teorie</button><button data-t="grafic">Grafic</button><button data-t="exersare">Exersare</button><button data-t="test">Test</button></nav>
+<main>
+<section id="teorie" class="on">
+<div class="card"><h2>1. Definiție</h2>Funcția <b>f : ℝ → ℝ, f(x) = ax + b</b>, cu <b>a ≠ 0</b>, se numește funcție de gradul I. Graficul ei este o <b>dreaptă</b>.
+<ul><li><b>a</b> – panta (coeficientul lui x)</li><li><b>b</b> – termenul liber (ordonata la origine)</li></ul></div>
+<div class="card"><h2>2. Valoarea funcției într-un punct</h2>Înlocuim x cu numărul dat.<div class="f">f(x) = 2x − 3 ⇒ f(4) = 2·4 − 3 = 5</div></div>
+<div class="card"><h2>3. Intersecția cu axele</h2><ul><li><b>Cu Oy:</b> x = 0 ⇒ punctul <b>(0; b)</b></li><li><b>Cu Ox (zeroul funcției):</b> f(x) = 0 ⇒ <b>x = −b/a</b>, punctul (−b/a; 0)</li></ul>
+<div class="f">f(x) = 2x − 6: 2x − 6 = 0 ⇒ x = 3, deci A(3; 0) și B(0; −6)</div></div>
+<div class="card"><h2>4. Monotonia</h2><ul><li>a &gt; 0 ⇒ f <b>strict crescătoare</b> (dreapta „urcă”)</li><li>a &lt; 0 ⇒ f <b>strict descrescătoare</b> (dreapta „coboară”)</li></ul>
+Semnul funcției: pentru a &gt; 0, f(x) &gt; 0 când x &gt; −b/a; pentru a &lt; 0, f(x) &gt; 0 când x &lt; −b/a.</div>
+<div class="card"><h2>5. Apartenența unui punct la grafic</h2>Punctul M(p; q) aparține graficului lui f dacă <b>f(p) = q</b>.<div class="f">f(x) = 3x − 1, M(2; 5): f(2) = 5 ✔ M ∈ Gf</div></div>
+<div class="card"><h2>6. Dreapta prin două puncte</h2>Pentru A(x₁; y₁), B(x₂; y₂):<div class="f">a = (y₂ − y₁)/(x₂ − x₁), apoi b = y₁ − a·x₁</div></div>
+<div class="card"><h2>7. Poziția a două drepte</h2>f(x) = a₁x + b₁, g(x) = a₂x + b₂
+<ul><li><b>Paralele:</b> a₁ = a₂ și b₁ ≠ b₂</li><li><b>Coincid:</b> a₁ = a₂ și b₁ = b₂</li><li><b>Secante:</b> a₁ ≠ a₂; punctul de intersecție se află din f(x) = g(x)</li></ul></div>
+<div class="card"><h2>8. Aria triunghiului format cu axele</h2>Dreapta taie axele în A(−b/a; 0) și B(0; b); triunghiul OAB are aria <div class="f">𝒜 = ½ · |b| · |−b/a| = b² / (2|a|)</div></div>
+</section>
+
+<section id="grafic"><div class="card"><h2>Explorează graficul f(x) = ax + b</h2>
+<canvas id="cv" width="420" height="420"></canvas>
+<label>a = <b id="av">2</b><input id="a" type="range" min="-5" max="5" step="0.5" value="2"></label>
+<label>b = <b id="bv">-3</b><input id="b" type="range" min="-8" max="8" step="0.5" value="-3"></label>
+<div class="f" id="info"></div></div></section>
+
+<section id="exersare"><div class="card"><h2>Exersare</h2>
+<label>Tema: <select id="topic"></select></label>
+<div class="stats" style="margin-top:8px">Corecte: <b id="sc">0</b> Total: <b id="st">0</b> Serie: <b id="ss">0</b> Record: <b id="sb">0</b></div>
+<div id="pq"></div></div></section>
+
+<section id="test"><div class="card"><h2>Test de 10 întrebări</h2><div id="tq"><p>Întrebări mixte din toate temele. Rezultatul apare la final.</p><button class="btn" id="tstart">Începe testul</button></div></div></section>
+</main>
+<script>
+const R=(a,b)=>Math.floor(Math.random()*(b-a+1))+a,nz=(a,b)=>{let v=0;while(!v)v=R(a,b);return v},sh=a=>a.sort(()=>Math.random()-.5);
+const fn=(a,b)=>{let s=a==1?'x':a==-1?'−x':a+'x';if(b>0)s+=' + '+b;else if(b<0)s+=' − '+(-b);return s.replace(/-/g,'−')};
+const m=v=>String(v).replace('-','−');
+const T=['Valoarea funcției','Zeroul funcției','Intersecția cu Oy','Monotonia','Panta din două puncte','Punct pe grafic','Parametru m','Intersecția a două grafice','Drepte paralele','Aria triunghiului cu axele'];
+function gen(t){
+ let a,b,k,o=['crescătoare','descrescătoare'];
+ switch(t){
+ case 0:a=nz(-5,5);b=R(-8,8);k=R(-4,4);return{q:`Fie f(x) = ${fn(a,b)}. Calculați f(${m(k)}).`,ans:a*k+b,sol:`f(${m(k)}) = ${a}·(${k}) + (${b}) = ${m(a*k+b)}`};
+ case 1:{let x=R(-6,6);a=nz(-4,4);b=-a*x;return{q:`Aflați zeroul funcției f(x) = ${fn(a,b)}.`,ans:x,sol:`${fn(a,b)} = 0 ⇒ x = −b/a = ${m(x)}`}}
+ case 2:a=nz(-5,5);b=nz(-9,9);return{q:`Aflați ordonata punctului de intersecție a graficului f(x) = ${fn(a,b)} cu axa Oy.`,ans:b,sol:`Pentru x = 0: f(0) = b = ${m(b)}`};
+ case 3:a=nz(-6,6);return{q:`Funcția f(x) = ${fn(a,R(-5,5))} este:`,kind:'c',opts:o,ans:a>0?o[0]:o[1],sol:`a = ${a} ${a>0?'> 0':'< 0'}, deci f este ${a>0?o[0]:o[1]}`};
+ case 4:{a=nz(-4,4);b=R(-5,5);let x1=R(-4,0),x2=x1+R(1,4);return{q:`Graficul funcției f(x) = ax + b conține punctele A(${m(x1)}; ${m(a*x1+b)}) și B(${m(x2)}; ${m(a*x2+b)}). Aflați a.`,ans:a,sol:`a = (y₂ − y₁)/(x₂ − x₁) = (${m(a*x2+b)} − (${a*x1+b}))/(${x2} − (${x1})) = ${m(a)}`}}
+ case 5:{a=nz(-4,4);b=R(-6,6);let p=R(-4,4),ok=Math.random()<.5,q=a*p+b+(ok?0:nz(-3,3));return{q:`Punctul M(${m(p)}; ${m(q)}) aparține graficului funcției f(x) = ${fn(a,b)}?`,kind:'c',opts:['Da','Nu'],ans:ok?'Da':'Nu',sol:`f(${m(p)}) = ${m(a*p+b)} ${ok?'=':'≠'} ${m(q)}`}}
+ case 6:{a=nz(-4,4);let p=R(-4,4),q=R(-8,8);b=q-a*p;return{q:`Aflați m astfel încât graficul funcției f(x) = ${m(a)}x + m să conțină punctul P(${m(p)}; ${m(q)}).`,ans:b,sol:`f(${m(p)}) = ${m(q)} ⇒ ${a}·(${p}) + m = ${m(q)} ⇒ m = ${m(b)}`}}
+ case 7:{let x=R(-5,5),y=R(-8,8),a1=nz(-4,4),a2;do a2=nz(-4,4);while(a2==a1);let b1=y-a1*x,b2=y-a2*x;return{q:`Aflați abscisa punctului de intersecție a graficelor f(x) = ${fn(a1,b1)} și g(x) = ${fn(a2,b2)}.`,ans:x,sol:`f(x) = g(x) ⇒ ${fn(a1,b1).replace(/ /g,'')} = ${fn(a2,b2).replace(/ /g,'')} ⇒ x = ${m(x)}`}}
+ case 8:a=nz(-6,6);return{q:`Aflați m astfel încât graficele f(x) = ${fn(a,3)} și g(x) = mx − 1 să fie drepte paralele.`,ans:a,sol:`Drepte paralele ⇒ coeficienții lui x sunt egali ⇒ m = ${m(a)}`};
+ case 9:{let x=nz(1,5);a=nz(-3,3);b=-a*x;let A=Math.abs(b*x)/2;return{q:`Aflați aria triunghiului format de graficul funcției f(x) = ${fn(a,b)} cu axele de coordonate.`,ans:A,sol:`Zero: x = ${m(x)}, f(0) = ${m(b)} ⇒ 𝒜 = ½·|${x}|·|${b}| = ${A}`}}
+ }}
+function load(){try{return JSON.parse(localStorage.getItem('fg1'))||{sc:0,st:0,ss:0,sb:0}}catch(e){return{sc:0,st:0,ss:0,sb:0}}}
+function save(){try{localStorage.setItem('fg1',JSON.stringify(S))}catch(e){}}
+let S=load();
+const $=id=>document.getElementById(id);
+function paintStats(){$('sc').textContent=S.sc;$('st').textContent=S.st;$('ss').textContent=S.ss;$('sb').textContent=S.sb}
+function check(q,v){if(q.kind=='c')return v===q.ans;let n=parseFloat(String(v).replace(',','.').replace('−','-'));return Math.abs(n-q.ans)<1e-6}
+function askUI(q,el,cb){
+ el.innerHTML=`<div class="q">${q.q}</div><div id="in"></div><div id="res"></div>`;
+ const inp=el.querySelector('#in');
+ const done=v=>{inp.innerHTML='';cb(check(q,v),v)};
+ if(q.kind=='c'){sh([...q.opts]).forEach(o=>{const b=document.createElement('button');b.className='opt';b.textContent=o;b.onclick=()=>done(o);inp.appendChild(b)})}
+ else{inp.innerHTML='<input type="text" id="v" inputmode="decimal" placeholder="Răspuns" autocomplete="off"> <button class="btn" id="ok">Verifică</button>';
+  const f=inp.querySelector('#v');f.focus();inp.querySelector('#ok').onclick=()=>{if(f.value.trim())done(f.value)};f.onkeydown=e=>{if(e.key=='Enter'&&f.value.trim())done(f.value)}}
+}
+function fb(ok,q){return `<div class="fb ${ok?'ok':'no'}">${ok?'✔ Corect!':'✘ Greșit. Răspuns corect: '+m(q.ans)}<small>${q.sol}</small></div>`}
+// Exersare
+const tp=$('topic');tp.innerHTML='<option value="all">Toate temele</option>'+T.map((t,i)=>`<option value="${i}">${t}</option>`).join('');
+function nextP(){const t=tp.value=='all'?R(0,9):+tp.value;const q=gen(t);askUI(q,$('pq'),(ok)=>{S.st++;if(ok){S.sc++;S.ss++;S.sb=Math.max(S.sb,S.ss)}else S.ss=0;save();paintStats();$('res').innerHTML=fb(ok,q)+'<button class="btn" id="nx">Următoarea →</button>';$('nx').onclick=nextP;$('nx').focus()})}
+tp.onchange=nextP;
+// Test
+let TS;
+function startT(){TS={i:0,s:0,w:[]};nextT()}
+function nextT(){
+ if(TS.i==10){const g=Math.max(1,TS.s);$('tq').innerHTML=`<div class="q">Rezultat: <b>${TS.s}/10</b> – nota estimativă <b>${g}</b></div><div class="bar"><i style="width:${TS.s*10}%"></i></div>`+(TS.w.length?'<h3>De revăzut:</h3>'+TS.w.map(x=>`<div class="fb no">${x.q}<small>Răspuns: ${m(x.ans)} – ${x.sol}</small></div>`).join(''):'<p>Perfect! 🎉</p>')+'<button class="btn" id="again">Reia testul</button>';$('again').onclick=startT;return}
+ const q=gen(R(0,9));
+ const el=$('tq');el.innerHTML=`<div class="stats">Întrebarea <b>${TS.i+1}</b> / 10 · Scor: <b>${TS.s}</b></div><div id="tbox"></div>`;
+ askUI(q,$('tbox'),(ok)=>{if(ok)TS.s++;else TS.w.push(q);TS.i++;$('res').innerHTML=fb(ok,q)+`<button class="btn" id="nx">${TS.i==10?'Vezi rezultatul':'Următoarea →'}</button>`;$('nx').onclick=nextT;$('nx').focus()})
+}
+$('tstart').onclick=startT;
+// Grafic
+function draw(){
+ const a=+$('a').value,b=+$('b').value,c=$('cv'),x=c.getContext('2d'),W=420,u=20,cs=getComputedStyle(document.documentElement);
+ const col=n=>cs.getPropertyValue(n).trim()||'#888';
+ x.clearRect(0,0,W,W);const X=v=>W/2+v*u,Y=v=>W/2-v*u;
+ x.lineWidth=1;x.strokeStyle=col('--bd');for(let i=-10;i<=10;i++){x.beginPath();x.moveTo(X(i),0);x.lineTo(X(i),W);x.moveTo(0,Y(i));x.lineTo(W,Y(i));x.stroke()}
+ x.strokeStyle=col('--mu');x.lineWidth=2;x.beginPath();x.moveTo(0,W/2);x.lineTo(W,W/2);x.moveTo(W/2,0);x.lineTo(W/2,W);x.stroke();
+ x.fillStyle=col('--mu');x.font='11px sans-serif';for(let i=-10;i<=10;i+=2)if(i){x.fillText(i,X(i)-4,W/2+13);x.fillText(i,W/2+4,Y(i)+4)}
+ x.fillText('x',W-12,W/2-6);x.fillText('y',W/2+6,12);
+ if(a!==0){x.strokeStyle=col('--ac');x.lineWidth=3;x.beginPath();x.moveTo(X(-10),Y(-10*a+b));x.lineTo(X(10),Y(10*a+b));x.stroke()}
+ x.fillStyle=col('--er');x.beginPath();x.arc(X(0),Y(b),5,0,7);x.fill();
+ let z='';if(a!==0){const z0=-b/a;x.fillStyle=col('--ok');x.beginPath();x.arc(X(z0),Y(0),5,0,7);x.fill();z=`Zeroul: x = ${m(+z0.toFixed(2))}`}
+ $('av').textContent=m(a);$('bv').textContent=m(b);
+ $('info').innerHTML=a===0?'a = 0 ⇒ f(x) = b este funcție constantă (nu e de gradul I!)':`f(x) = ${fn(a,b).replace(/(\.5)/g,'.5')}<br>Panta ${m(a)} ⇒ ${a>0?'crescătoare':'descrescătoare'}<br>${z} (punct verde) · Intersecție Oy: (0; ${m(b)}) (punct roșu)`;
+}
+$('a').oninput=$('b').oninput=draw;
+// Nav
+document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#nav button,section').forEach(e=>e.classList.remove('on'));b.classList.add('on');$(b.dataset.t).classList.add('on');if(b.dataset.t=='grafic')draw()});
+paintStats();nextP();draw();
+</script>
+</body>
+</html>
